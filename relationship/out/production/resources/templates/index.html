@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Relationship</title>
+</head>
+<body>
+    <h2>List of libraries</h2>
+    <table border="2">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Address</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="library: ${libraries}">
+                <td th:text="${library.id}"></td>
+                <td>
+                    <a th:href="@{libraries/__${library.id}__}" th:text="${library.name}"></a>
+                </td>
+                <td th:text="${library.address.id}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <h2>List of authors</h2>
+    <table border="2">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="author: ${authors}">
+            <td th:text="${author.id}"></td>
+            <td th:text="${author.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
